@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Використання блоків CSS</title>
+    <style>
+        :root {
+            --black: #121212;
+            --dark-gray: #1e1e1e;
+            --gray: #2d2d2d;
+            --light-gray: #3d3d3d;
+            --white: #e0e0e0;
+            --border-color: #444;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3 {
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .block {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 20px;
+            margin: 15px 0;
+            background-color: var(--dark-gray);
+        }
+        
+        .parent-block {
+            background-color: var(--gray);
+            position: relative;
+        }
+        
+        .child-block {
+            background-color: var(--light-gray);
+            margin: 10px;
+            padding: 15px;
+        }
+        
+        .inline-blocks-container {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .inline-block {
+            flex: 1;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-gray);
+        }
+        
+        .relative-block {
+            position: relative;
+            height: 200px;
+            background-color: var(--gray);
+        }
+        
+        .absolute-block {
+            position: absolute;
+            width: 150px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-gray);
+        }
+        
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+        
+        .bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
+        
+        .center {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .display-examples {
+            margin: 20px 0;
+        }
+        
+        .display-block {
+            display: block;
+            background-color: var(--light-gray);
+            margin: 5px 0;
+            padding: 10px;
+        }
+        
+        .display-inline {
+            display: inline;
+            background-color: var(--light-gray);
+            margin: 0 5px;
+            padding: 5px 10px;
+        }
+        
+        .display-inline-block {
+            display: inline-block;
+            width: 100px;
+            background-color: var(--light-gray);
+            margin: 0 5px;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: var(--gray);
+        }
+        
+        .flex-item {
+            flex: 1 1 200px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-gray);
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: var(--gray);
+        }
+        
+        .grid-item {
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-gray);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .code {
+            font-family: monospace;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Використання блоків CSS</h1>
+        <p class="text-center">Демонстрація різних способів роботи з блоками та їх вкладенням</p>
+        
+        <div class="block">
+            <h2>Просте вкладення блоків</h2>
+            <div class="parent-block">
+                <p>Батьківський блок (рівень 1)</p>
+                <div class="child-block">
+                    <p>Дочірній блок (рівень 2)</p>
+                    <div class="child-block">
+                        <p>Вкладений блок (рівень 3)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="block">
+            <h2>Блоки в рядок (Flexbox)</h2>
+            <div class="inline-blocks-container">
+                <div class="inline-block">Блок 1</div>
+                <div class="inline-block">Блок 2</div>
+                <div class="inline-block">Блок 3</div>
+            </div>
+        </div>
+        
+        <div class="block">
+            <h2>Абсолютне позиціонування</h2>
+            <div class="relative-block">
+                <p>Батьківський блок з <span class="code">position: relative</span></p>
+                <div class="absolute-block top-left">top-left</div>
+                <div class="absolute-block bottom-right">bottom-right</div>
+                <div class="absolute-block center">center</div>
+            </div>
+        </div>
+        
+        <div class="block">
+            <h2>Різні типи відображення</h2>
+            <div class="display-examples">
+                <div class="display-block">Блок 1 (display: block)</div>
+                <div class="display-block">Блок 2 (display: block)</div>
+                <span class="display-inline">Inline 1</span>
+                <span class="display-inline">Inline 2</span>
+                <div class="display-inline-block">Inline-Block 1</div>
+                <div class="display-inline-block">Inline-Block 2</div>
+            </div>
+        </div>
+        
+        <div class="block">
+            <h2>Flexbox контейнер</h2>
+            <div class="flex-container">
+                <div class="flex-item">Flex Item 1</div>
+                <div class="flex-item">Flex Item 2</div>
+                <div class="flex-item">Flex Item 3</div>
+                <div class="flex-item">Flex Item 4</div>
+                <div class="flex-item">Flex Item 5</div>
+                <div class="flex-item">Flex Item 6</div>
+            </div>
+        </div>
+        
+        <div class="block">
+            <h2>CSS Grid</h2>
+            <div class="grid-container">
+                <div class="grid-item">Grid Item 1</div>
+                <div class="grid-item">Grid Item 2</div>
+                <div class="grid-item">Grid Item 3</div>
+                <div class="grid-item">Grid Item 4</div>
+                <div class="grid-item">Grid Item 5</div>
+                <div class="grid-item">Grid Item 6</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
